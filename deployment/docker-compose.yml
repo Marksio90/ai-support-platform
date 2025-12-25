@@ -1,0 +1,107 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: ecommerce-support-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - REDIS_URL=redis://redis:6379
+      - MONGODB_URL=mongodb://mongodb:27017/ecommerce_support
+    depends_on:
+      - redis
+      - mongodb
+    volumes:
+      - ../backend/app:/app/app
+    restart: unless-stopped
+    networks:
+      - support-network
+
+  # Frontend
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: ecommerce-support-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - support-network
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: ecommerce-support-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+    networks:
+      - support-network
+
+  # MongoDB for query logging
+  mongodb:
+    image: mongo:7
+    container_name: ecommerce-support-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_DATABASE=ecommerce_support
+    volumes:
+      - mongodb-data:/data/db
+    restart: unless-stopped
+    networks:
+      - support-network
+
+  # Prometheus for metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ecommerce-support-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+    restart: unless-stopped
+    networks:
+      - support-network
+
+  # Grafana for dashboards
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ecommerce-support-grafana
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    volumes:
+      - grafana-data:/var/lib/grafana
+    depends_on:
+      - prometheus
+    restart: unless-stopped
+    networks:
+      - support-network
+
+volumes:
+  redis-data:
+  mongodb-data:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  support-network:
+    driver: bridge

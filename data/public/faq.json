@@ -1,0 +1,109 @@
+{
+  "faq": [
+    {
+      "category": "dostawa",
+      "question": "Jakie są opcje dostawy?",
+      "answer": "Oferujemy następujące opcje dostawy:\n- Kurier DHL/DPD (1-2 dni robocze) - 15 zł\n- Paczkomat InPost (1-2 dni robocze) - 12 zł\n- Odbiór osobisty w punktach odbioru - 0 zł\n\nDarmowa dostawa przy zamówieniach powyżej 200 zł."
+    },
+    {
+      "category": "dostawa",
+      "question": "Jak długo czekam na przesyłkę?",
+      "answer": "Czas dostawy zależy od wybranej opcji:\n- Kurier: 1-2 dni robocze od wysyłki\n- Paczkomat: 1-2 dni robocze od wysyłki\n- Zamówienia realizujemy w ciągu 24h (dni robocze)\n\nJeśli produkt jest niedostępny, poinformujemy Cię mailowo."
+    },
+    {
+      "category": "dostawa",
+      "question": "Jak mogę śledzić przesyłkę?",
+      "answer": "Po wysłaniu zamówienia otrzymasz email z numerem przesyłki. Możesz śledzić status na:\n- Stronie kuriera (link w emailu)\n- W zakładce 'Moje zamówienia' w Twoim koncie\n- Aplikacji InPost (dla Paczkomatu)"
+    },
+    {
+      "category": "zwroty",
+      "question": "Jak mogę zwrócić produkt?",
+      "answer": "Zwroty realizujemy zgodnie z prawem:\n1. Masz 14 dni od otrzymania na zwrot\n2. Zaloguj się na konto → 'Zwroty i reklamacje'\n3. Wybierz zamówienie i produkty do zwrotu\n4. Wydrukuj etykietę zwrotną\n5. Zapakuj produkt w oryginalne opakowanie\n6. Nadaj przesyłkę\n\nZwrot kosztów w ciągu 14 dni od otrzymania towaru."
+    },
+    {
+      "category": "zwroty",
+      "question": "Czy zwrot jest płatny?",
+      "answer": "Koszt zwrotu zależy od przyczyny:\n- Rezygnacja z zakupu: koszt pokrywa klient (ok. 15 zł)\n- Produkt wadliwy/niezgodny z opisem: zwrot za darmo\n\nDla klientów premium zwroty są zawsze bezpłatne."
+    },
+    {
+      "category": "zwroty",
+      "question": "Kiedy otrzymam zwrot pieniędzy?",
+      "answer": "Zwrot środków następuje:\n- W ciągu 14 dni od otrzymania zwróconego produktu\n- Na to samo konto/kartę, z której dokonano płatności\n- Otrzymasz email z potwierdzeniem zwrotu\n\nJeśli płaciłeś przy odbiorze - podaj numer konta przy zwrocie."
+    },
+    {
+      "category": "reklamacje",
+      "question": "Co zrobić gdy produkt jest uszkodzony?",
+      "answer": "Jeśli otrzymałeś uszkodzony produkt:\n1. Zrób zdjęcia uszkodzeń i opakowania\n2. Zaloguj się → 'Reklamacje'\n3. Zgłoś reklamację, dołącz zdjęcia\n4. Wybierz: wymiana lub zwrot pieniędzy\n\nOdpowiemy w ciągu 14 dni. Wysyłka reklamacyjna jest bezpłatna."
+    },
+    {
+      "category": "reklamacje",
+      "question": "Jak długo trwa rozpatrzenie reklamacji?",
+      "answer": "Reklamacje rozpatrujemy zgodnie z prawem:\n- Odpowiedź: maksymalnie 14 dni\n- W praktyce: 3-5 dni roboczych\n- Otrzymasz email z decyzją\n\nW przypadku wymiany, nowy produkt wysyłamy natychmiast po akceptacji."
+    },
+    {
+      "category": "płatności",
+      "question": "Jakie formy płatności akceptujecie?",
+      "answer": "Dostępne metody płatności:\n- Szybkie przelewy online (PayU, Przelewy24)\n- Karty płatnicze (Visa, Mastercard, American Express)\n- BLIK\n- Raty (PayPo, Twisto)\n- Płatność przy odbiorze (+10 zł)\n- Przelew tradycyjny (przedpłata)\n\nWszystkie płatności są szyfrowane i bezpieczne."
+    },
+    {
+      "category": "płatności",
+      "question": "Czy mogę kupić na raty?",
+      "answer": "Tak! Oferujemy:\n- PayPo (kup teraz, zapłać za 30 dni) - 0%\n- Twisto (płać w ratach) - 0% przy 3-4 ratach\n- Raty 0% (minimum 300 zł)\n\nWybierz opcję przy składaniu zamówienia. Decyzja w 1 minutę."
+    },
+    {
+      "category": "płatności",
+      "question": "Kiedy zostanie pobrana płatność?",
+      "answer": "Moment płatności zależy od metody:\n- Karta/BLIK/przelew online: natychmiast przy zamówieniu\n- Przelew tradycyjny: realizacja po zaksięgowaniu\n- Przy odbiorze: przy odbiorze paczki\n- PayPo/Twisto: zgodnie z harmonogramem\n\nZamówienie jest realizowane po potwierdzeniu płatności."
+    },
+    {
+      "category": "konto",
+      "question": "Jak założyć konto?",
+      "answer": "Założenie konta:\n1. Kliknij 'Zarejestruj się' w prawym górnym rogu\n2. Podaj email i hasło\n3. Potwierdź email (link aktywacyjny)\n4. Gotowe!\n\nKorzyści: szybsze zamówienia, historia zakupów, śledzenie przesyłek."
+    },
+    {
+      "category": "konto",
+      "question": "Zapomniałem hasła, co robić?",
+      "answer": "Resetowanie hasła:\n1. Kliknij 'Zaloguj się'\n2. 'Nie pamiętam hasła'\n3. Podaj adres email\n4. Sprawdź email i kliknij link\n5. Ustaw nowe hasło\n\nLink jest ważny 24 godziny."
+    },
+    {
+      "category": "zamówienia",
+      "question": "Jak złożyć zamówienie?",
+      "answer": "Składanie zamówienia:\n1. Dodaj produkty do koszyka\n2. Przejdź do koszyka (ikona w prawym górnym rogu)\n3. Wybierz dostawę i płatność\n4. Podaj dane do wysyłki\n5. Zatwierdź zamówienie\n\nOtrzymasz potwierdzenie na email."
+    },
+    {
+      "category": "zamówienia",
+      "question": "Czy mogę anulować zamówienie?",
+      "answer": "Anulowanie zamówienia:\n- Przed wysyłką: tak, bezpłatnie (kontakt przez 'Moje zamówienia')\n- Po wysłaniu: musisz zwrócić paczkę (procedura zwrotu)\n\nJeśli płatność została pobrana, zwrócimy ją w ciągu 14 dni."
+    },
+    {
+      "category": "zamówienia",
+      "question": "Jak zmienić adres dostawy?",
+      "answer": "Zmiana adresu:\n- Przed wysyłką: skontaktuj się przez 'Moje zamówienia' → 'Kontakt'\n- Po wysłaniu: skontaktuj się z kurierem (numer w emailu)\n\nZmiana jest możliwa jeśli paczka nie została jeszcze wysłana."
+    },
+    {
+      "category": "produkty",
+      "question": "Jak sprawdzić dostępność produktu?",
+      "answer": "Dostępność produktu:\n- Strona produktu: status pod ceną\n  - 'Dostępny' - wysyłka w 24h\n  - 'Mała ilość' - pośpiesz się\n  - 'Na zamówienie' - 5-7 dni\n  - 'Niedostępny' - zapisz się na powiadomienie\n\nMożesz włączyć powiadomienia o dostępności."
+    },
+    {
+      "category": "produkty",
+      "question": "Czy mogę zobaczyć produkt przed zakupem?",
+      "answer": "Opcje sprawdzenia produktu:\n- Zdjęcia i opis na stronie produktu\n- Opinie innych klientów\n- Odbiór osobisty - możesz zobaczyć na miejscu\n- Salony stacjonarne (sprawdź lokalizacje)\n\nPamiętaj: masz 14 dni na zwrot bez podania przyczyny."
+    },
+    {
+      "category": "promocje",
+      "question": "Jak mogę skorzystać z kodu rabatowego?",
+      "answer": "Użycie kodu rabatowego:\n1. Dodaj produkty do koszyka\n2. W koszyku znajdź pole 'Kod rabatowy'\n3. Wpisz kod i kliknij 'Zastosuj'\n4. Rabat zostanie odjęty od sumy\n\nMożna użyć tylko jeden kod na zamówienie."
+    },
+    {
+      "category": "promocje",
+      "question": "Gdzie znajdę aktualne promocje?",
+      "answer": "Aktualne promocje:\n- Zakładka 'Promocje' w menu\n- Newsletter (zapisz się - 10% rabatu)\n- Social media (Facebook, Instagram)\n- Aplikacja mobilna - ekskluzywne oferty\n\nCzarne Piątki, Cyber Monday - największe rabaty!"
+    },
+    {
+      "category": "kontakt",
+      "question": "Jak mogę skontaktować się z obsługą?",
+      "answer": "Sposoby kontaktu:\n- Chat na stronie (pn-pt 9-17)\n- Email: pomoc@sklep.pl (odpowiedź do 24h)\n- Telefon: 22 123 45 67 (pn-pt 9-17)\n- Formularz kontaktowy\n\nW pilnych sprawach - dzwoń."
+    }
+  ]
+}

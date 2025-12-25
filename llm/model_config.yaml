@@ -1,0 +1,116 @@
+# LLM Configuration for E-commerce Support AI
+
+# Base Model Selection
+# Options for Polish language models:
+base_model:
+  # Option 1: Multilingual - good Polish support
+  name: "mistralai/Mistral-7B-Instruct-v0.2"
+  type: "instruct"
+  size: "7B"
+
+  # Option 2: Polish-specific (alternative)
+  # name: "sdadas/polish-roberta-large-v2"
+
+  # Option 3: Multilingual BLOOM (alternative)
+  # name: "bigscience/bloomz-7b1"
+
+# LoRA Configuration
+lora:
+  enabled: true
+  r: 16  # LoRA rank
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules:
+    - "q_proj"
+    - "k_proj"
+    - "v_proj"
+    - "o_proj"
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+# Quantization for efficient inference
+quantization:
+  enabled: true
+  bits: 4  # 4-bit or 8-bit
+  type: "nf4"  # NormalFloat4
+  compute_dtype: "bfloat16"
+  double_quant: true
+
+# Training Configuration
+training:
+  output_dir: "./models/ecommerce-support-lora"
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  gradient_accumulation_steps: 4
+  learning_rate: 2.0e-4
+  warmup_steps: 100
+  logging_steps: 10
+  save_steps: 100
+  eval_steps: 100
+  max_seq_length: 1024
+
+  # Optimizer
+  optim: "paged_adamw_8bit"
+
+  # Mixed precision
+  fp16: false
+  bf16: true
+
+# Generation Configuration
+generation:
+  max_new_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  repetition_penalty: 1.1
+  do_sample: true
+
+# System Prompt
+system_prompt: |
+  Jesteś pomocnym asystentem wirtualnym sklepu internetowego.
+
+  Twoje zadania:
+  - Odpowiadaj TYLKO na podstawie dostarczonych informacji (kontekst)
+  - Jeśli nie znasz odpowiedzi, powiedz że musisz przekazać do konsultanta
+  - Odpowiadaj po polsku, w przyjaznym i profesjonalnym tonie
+  - Bądź konkretny i zwięzły
+  - Zawsze cytuj źródła swoich odpowiedzi
+
+  Zasady:
+  - NIE wymyślaj informacji
+  - NIE podawaj danych, których nie ma w kontekście
+  - Gdy brak pewności, przekaż do człowieka
+  - Zawsze zachowuj uprzejmy ton
+
+# Prompt Template
+prompt_template: |
+  <s>[INST] <<SYS>>
+  {system_prompt}
+  <</SYS>>
+
+  Kontekst (dokumenty sklepu):
+  {context}
+
+  Pytanie klienta: {query}
+
+  Odpowiedz na pytanie klienta używając TYLKO informacji z kontekstu. Jeśli nie masz pewności, powiedz że przekażesz sprawę do konsultanta. [/INST]
+
+# Evaluation
+evaluation:
+  metrics:
+    - "accuracy"
+    - "rouge"
+    - "bleu"
+  test_size: 0.1
+
+# Guardrails
+guardrails:
+  confidence_threshold: 0.7  # Below this = requires human
+  max_response_length: 500
+  forbidden_topics:
+    - "medical_advice"
+    - "legal_advice"
+
+  refusal_responses:
+    - "Przepraszam, ale to wykracza poza moje kompetencje. Przekażę Twoje pytanie do konsultanta."
+    - "Nie mogę odpowiedzieć na to pytanie. Skontaktuję Cię z naszym zespołem obsługi."

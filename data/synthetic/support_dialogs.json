@@ -1,0 +1,100 @@
+{
+  "dialogs": [
+    {
+      "id": 1,
+      "category": "status_zamowienia",
+      "customer_query": "Dzień dobry, zamówiłam paczkę 3 dni temu i nadal nie mam informacji o wysyłce. Numer zamówienia 45678. Co się dzieje?",
+      "ai_response": "Dzień dobry! Sprawdzam status Twojego zamówienia nr 45678. Widzę, że zamówienie zostało zrealizowane i przekazane kurierowi wczoraj. Numer przesyłki to: ABC123456789. Możesz śledzić paczkę na stronie kuriera DPD. Email z linkiem do śledzenia został wysłany na Twój adres. Paczka powinna dotrzeć jutro lub pojutrze. Czy mogę w czymś jeszcze pomóc?",
+      "confidence": 0.92,
+      "sources": ["System zarządzania zamówieniami", "Baza kurierów"]
+    },
+    {
+      "id": 2,
+      "category": "zwrot",
+      "customer_query": "Chcę zwrócić buty, które kupiłam w zeszłym tygodniu. Są za małe. Jak to zrobić?",
+      "ai_response": "Oczywiście pomogę! Zwrot jest prosty:\n1. Zaloguj się na swoje konto\n2. Przejdź do 'Moje zamówienia' → 'Zwroty i reklamacje'\n3. Wybierz zamówienie z butami\n4. Kliknij 'Zwróć produkt' i wybierz powód 'Zły rozmiar'\n5. Wydrukuj etykietę zwrotną\n6. Zapakuj buty w oryginalne opakowanie i nadaj przesyłkę\n\nMasz 14 dni od otrzymania na zwrot. Koszt wysyłki zwrotnej to około 15 zł. Zwrot pieniędzy otrzymasz w ciągu 14 dni od momentu, gdy otrzymamy paczkę.\n\nCzy chcesz od razu wymienić na większy rozmiar? To może być szybsze!",
+      "confidence": 0.95,
+      "sources": ["Regulamin zwrotów", "FAQ: Zwroty"]
+    },
+    {
+      "id": 3,
+      "category": "reklamacja",
+      "customer_query": "Otrzymałam uszkodzoną kurtkę, ma rozdarty rękaw. To niedopuszczalne! Wymaga natychmiastowej reakcji.",
+      "ai_response": "Bardzo przepraszam za tę sytuację! To niedopuszczalne, że otrzymałaś uszkodzony produkt. Natychmiast pomogę:\n\n1. Proszę, zrób zdjęcie uszkodzenia i opakowania\n2. Zaloguj się → 'Reklamacje'\n3. Zgłoś reklamację, dołącz zdjęcia\n4. Wybierz: wymiana na nową kurtkę lub zwrot pieniędzy\n\nWysyłka reklamacyjna jest BEZPŁATNA dla Ciebie. Rozpatrzymy reklamację w ciągu 3-5 dni (maksymalnie 14 dni zgodnie z prawem).\n\nJak najszybciej wyślemy Ci nową kurtkę!\n\nCzy mogę w czymś jeszcze pomóc?",
+      "confidence": 0.94,
+      "sources": ["Polityka reklamacji", "Procedury jakości"]
+    },
+    {
+      "id": 4,
+      "category": "platnosc",
+      "customer_query": "Próbuję zapłacić kartą, ale wyskakuje błąd. Co mam zrobić?",
+      "ai_response": "Przykro mi, że masz problem z płatnością. Sprawdźmy co może być przyczyną:\n\n1. Najpierw spróbuj:\n   - Odświeżyć stronę i spróbować ponownie\n   - Użyć innej karty\n   - Spróbować BLIK lub szybki przelew\n\n2. Częste przyczyny błędów:\n   - Przekroczony limit dziennych transakcji\n   - Brak środków na koncie\n   - Blokada 3D Secure - sprawdź SMS z banku\n   - Karta nie jest aktywowana do płatności online\n\n3. Jeśli problem się powtarza:\n   - Skontaktuj się z bankiem\n   - Użyj płatności BLIK\n   - Wybierz przelew tradycyjny (przedpłata)\n\nCzy błąd nadal występuje?",
+      "confidence": 0.85,
+      "sources": ["FAQ: Płatności", "System płatności"]
+    },
+    {
+      "id": 5,
+      "category": "dostepnosc",
+      "customer_query": "Czy bluza NIKE w rozmiarze M będzie dostępna w tym tygodniu?",
+      "ai_response": "Sprawdzam dostępność bluzy NIKE rozmiar M...\n\nNiestety, obecnie rozmiar M jest niedostępny. Dobre wiadomości:\n- Spodziewamy się dostawy w przyszłym tygodniu (około 5-7 dni)\n- Możesz włączyć powiadomienie o dostępności (przycisk 'Powiadom mnie' na stronie produktu)\n- Dostępne są inne rozmiary: S, L, XL\n\nCzy chcesz, żebym zapisał Cię na listę powiadomień? Wyślemy email, gdy tylko rozmiar M wróci do magazynu.\n\nAlternatywnie mogę polecić podobne bluzy NIKE, które są teraz dostępne w rozmiarze M.",
+      "confidence": 0.88,
+      "sources": ["System magazynowy", "Harmonogram dostaw"]
+    },
+    {
+      "id": 6,
+      "category": "zmiana_adresu",
+      "customer_query": "Złożyłem zamówienie, ale podałem zły adres! Czy mogę zmienić?",
+      "ai_response": "Postaram się pomóc! Zmiana adresu zależy od statusu zamówienia:\n\n1. Sprawdzam Twoje zamówienie...\n   - Jeśli status to 'W przygotowaniu' → możemy zmienić adres (skontaktuj się przez 'Moje zamówienia' → 'Kontakt')\n   - Jeśli 'Wysłane' → musisz skontaktować się z kurierem (numer w emailu ze śledzeniem)\n\n2. Jak zmienić:\n   - Przed wysyłką: napisz nowy adres w wiadomości do nas\n   - Po wysłaniu: zadzwoń do kuriera, podaj numer przesyłki\n\nJeśli paczka już jest w drodze, kurier może zmienić adres za dodatkową opłatą (ok. 10 zł) lub możesz odebrać w punkcie kuriera.\n\nPodaj numer zamówienia, sprawdzę dokładny status!",
+      "confidence": 0.90,
+      "sources": ["FAQ: Zamówienia", "Procedury kurierskie"]
+    },
+    {
+      "id": 7,
+      "category": "anulowanie",
+      "customer_query": "Chcę anulować zamówienie, zamówiłem przez pomyłkę dwa razy",
+      "ai_response": "Rozumiem, zaraz pomogę anulować duplikat!\n\nAnulowanie zamówienia:\n1. Przed wysyłką → bezpłatne anulowanie:\n   - Zaloguj się → 'Moje zamówienia'\n   - Znajdź zamówienie do anulowania\n   - Kliknij 'Anuluj zamówienie'\n   - Jeśli opłaciłeś, zwrot środków w ciągu 14 dni\n\n2. Po wysłaniu → musisz zwrócić paczkę:\n   - Możesz odmówić przyjęcia przy kurierze (paczka wróci do nas)\n   - Lub zwrócić standardową procedurą zwrotu\n\nPodaj numery OBU zamówień, sprawdzę który możemy anulować, a który zachować.\n\nCzy jedno z zamówień jest już opłacone?",
+      "confidence": 0.91,
+      "sources": ["FAQ: Zamówienia", "Regulamin: Anulowanie"]
+    },
+    {
+      "id": 8,
+      "category": "kod_rabatowy",
+      "customer_query": "Mam kod rabatowy ZIMA2024 ale nie działa. Dlaczego?",
+      "ai_response": "Sprawdzam kod rabatowy ZIMA2024...\n\nMożliwe przyczyny, dla których kod nie działa:\n\n1. Kod wygasł (sprawdzam... kod ważny do 31.01.2024)\n2. Minimalna wartość zamówienia nie została osiągnięta (kod ZIMA2024 wymaga min. 150 zł)\n3. Kod dotyczy tylko wybranych produktów (kategorie: odzież zimowa)\n4. Kod nie łączy się z innymi promocjami\n5. Kod został już wykorzystany (kod jednorazowy)\n\nAby użyć kodu:\n- Dodaj produkty objęte promocją do koszyka\n- Upewnij się, że wartość koszyka to min. 150 zł\n- W koszyku wpisz kod w pole 'Kod rabatowy'\n- Kliknij 'Zastosuj'\n\nCzy produkty w Twoim koszyku to odzież zimowa? Jaka jest wartość koszyka?",
+      "confidence": 0.87,
+      "sources": ["System kodów rabatowych", "Aktualne promocje"]
+    },
+    {
+      "id": 9,
+      "category": "rozmiary",
+      "customer_query": "Nie wiem jaki rozmiar kurtki wybrać, noszę M w H&M. Co polecacie?",
+      "ai_response": "Pomogę dobrać odpowiedni rozmiar!\n\nNasze rozmiary mogą różnić się od H&M. Najlepiej:\n\n1. Sprawdź tabelę rozmiarów na stronie produktu:\n   - Kliknij 'Tabela rozmiarów' pod wyborem rozmiaru\n   - Zmierz swoje wymiary: obwód klatki, talii, bioder\n   - Porównaj z tabelą\n\n2. Uwagi dotyczące tego produktu:\n   - Sprawdź opinie klientów (często piszą czy \"rozmiar odpowiada\", \"większy\", \"mniejszy\")\n   - Niektóre kurtki są oversize (wtedy weź mniejszy rozmiar)\n\n3. W razie wątpliwości:\n   - Zamów 2 rozmiary (M i L)\n   - Przymierz w domu\n   - Zwróć ten, który nie pasuje (14 dni na zwrot)\n\nDo którego modelu kurtki się interesujesz? Mogę podać dokładne wymiary!",
+      "confidence": 0.82,
+      "sources": ["Tabele rozmiarów", "FAQ: Produkty"]
+    },
+    {
+      "id": 10,
+      "category": "newsletter",
+      "customer_query": "Jak mogę dostać 10% rabatu z newslettera?",
+      "ai_response": "Świetnie, że chcesz dołączyć do newslettera! Rabat -10% czeka! 🎉\n\nJak otrzymać kod:\n1. Przewiń stronę główną na dół\n2. Znajdź pole 'Zapisz się do newslettera'\n3. Wpisz adres email\n4. Kliknij 'Zapisz się'\n5. Sprawdź email - kod rabatowy zostanie wysłany w ciągu kilku minut\n6. Potwierdź subskrypcję (kliknij link w emailu)\n\nKorzyści newslettera:\n- 10% rabatu na pierwsze zakupy (kod jednorazowy)\n- Wczesny dostęp do wyprzedaży\n- Ekskluzywne oferty\n- Informacje o nowościach\n\nKod działa na wszystkie produkty bez minimalnej wartości zamówienia!\n\nCzy zapisałeś się już? Sprawdź folder SPAM jeśli nie widzisz emaila.",
+      "confidence": 0.93,
+      "sources": ["Marketing: Newsletter", "Kody promocyjne"]
+    },
+    {
+      "id": 11,
+      "category": "kontakt_telefoniczny",
+      "customer_query": "Muszę pilnie porozmawiać z konsultantem, jaki jest numer telefonu?",
+      "ai_response": "Oczywiście! Dane kontaktowe:\n\n📞 Telefon: 22 123 45 67\n⏰ Godziny: pn-pt 9:00-17:00\n\n📧 Email: pomoc@sklep.pl (odpowiedź do 24h)\n💬 Chat na stronie: pn-pt 9:00-17:00 (szybsza odpowiedź!)\n\nW pilnych sprawach najszybciej:\n- Zadzwoń (jeśli pn-pt 9-17)\n- Napisz na chat (odpowiedź w kilka minut)\n- Email dla mniej pilnych spraw\n\nCzy mogę Ci w czymś pomóc teraz? Może uda mi się rozwiązać problem bez czekania na konsultanta? 😊\n\nW jakiej sprawie chcesz się skontaktować?",
+      "confidence": 0.96,
+      "sources": ["FAQ: Kontakt", "Dane firmy"]
+    },
+    {
+      "id": 12,
+      "category": "paczkomat",
+      "customer_query": "Wybrałam paczkomat, ale podałam zły numer. Czy mogę zmienić?",
+      "ai_response": "Sprawdzę czy możemy zmienić paczkomat!\n\nZmiana Paczkomatu:\n\n1. Przed nadaniem:\n   - Skontaktuj się przez 'Moje zamówienia' → 'Kontakt'\n   - Podaj nowy numer Paczkomatu\n   - Zmienimy adres dostawy\n\n2. Po nadaniu (paczka w drodze):\n   - InPost pozwala SAMODZIELNIE zmienić Paczkomat!\n   - Pobierz aplikację InPost Mobile\n   - Zaloguj się numerem telefonu\n   - Znajdź swoją przesyłkę\n   - Kliknij 'Zmień Paczkomat'\n   - Wybierz nowy Paczkomat (bezpłatnie!)\n\n3. Przed odbiorem:\n   - Masz 48h na odbiór\n   - Potem paczka wraca do nadawcy\n\nNa jaki Paczkomat chcesz zmienić? Podaj kod (np. KRA01M) a sprawdzę czy jest dostępny!",
+      "confidence": 0.89,
+      "sources": ["FAQ: Dostawa", "InPost: Procedury"]
+    }
+  ]
+}
