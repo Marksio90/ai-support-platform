@@ -1,0 +1,12 @@
+# E-commerce Support AI - Main Requirements
+# Install all components at once
+
+# Backend
+-r backend/requirements.txt
+
+# RAG System
+-r rag/requirements.txt
+
+# LLM Layer (optional - requires GPU for training)
+# Uncomment if you want to train LoRA adapters
+# -r llm/requirements.txt
