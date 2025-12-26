@@ -1,0 +1,33 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install training dependencies
+RUN pip install --no-cache-dir \
+    torch==2.1.0 \
+    transformers==4.36.0 \
+    peft==0.7.1 \
+    datasets==2.16.0 \
+    accelerate==0.25.0 \
+    bitsandbytes==0.41.3 \
+    sentencepiece==0.1.99 \
+    protobuf==4.25.1
+
+# Copy training script
+COPY train_simple.py .
+COPY model_config.yaml .
+
+# Create models directory
+RUN mkdir -p /app/models
+
+# Training entrypoint
+COPY training_entrypoint.sh /app/
+RUN chmod +x /app/training_entrypoint.sh
+
+CMD ["/app/training_entrypoint.sh"]
