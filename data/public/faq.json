@@ -104,6 +104,121 @@
       "category": "kontakt",
       "question": "Jak mogę skontaktować się z obsługą?",
       "answer": "Sposoby kontaktu:\n- Chat na stronie (pn-pt 9-17)\n- Email: pomoc@sklep.pl (odpowiedź do 24h)\n- Telefon: 22 123 45 67 (pn-pt 9-17)\n- Formularz kontaktowy\n\nW pilnych sprawach - dzwoń."
+    },
+    {
+      "category": "dostawa",
+      "question": "Co robić gdy paczka nie dotarła?",
+      "answer": "Jeśli paczka nie dotarła w przewidywanym czasie:\n1. Sprawdź tracking na stronie kuriera\n2. Sprawdź czy kurier nie zostawił awizo\n3. Skontaktuj się z kurierem (numer w emailu)\n4. Jeśli brak kontaktu z kurierem - napisz do nas\n\nPo 7 dniach opóźnienia możesz złożyć reklamację."
+    },
+    {
+      "category": "dostawa",
+      "question": "Czy mogę wybrać godzinę dostawy?",
+      "answer": "Opcje wyboru godziny:\n- Kurier standardowy: nie ma wyboru godziny\n- Kurier premium (+20 zł): wybór przedziału 2h\n- Paczkomat: odbiór 24/7 w dowolnym momencie\n- Odbiór osobisty: pn-pt 10-18, sb 10-14\n\nKurier zazwyczaj dzwoni przed dostawą."
+    },
+    {
+      "category": "dostawa",
+      "question": "Czy dostarczacie za granicę?",
+      "answer": "Wysyłka międzynarodowa:\n- UE: tak, 3-5 dni roboczych (od 35 zł)\n- Wielka Brytania: tak, 5-7 dni (od 45 zł)\n- Szwajcaria, Norwegia: tak, 5-10 dni (od 55 zł)\n- Poza Europę: wyślij zapytanie\n\nKoszty zależą od wagi i destynacji."
+    },
+    {
+      "category": "zwroty",
+      "question": "Czy mogę zwrócić część zamówienia?",
+      "answer": "Tak! Zwrot częściowy jest możliwy:\n1. Wybierz tylko te produkty, które chcesz zwrócić\n2. Pozostałe zachowaj\n3. Zwrot kosztów tylko za zwrócone produkty\n\nKoszt dostawy nie jest zwracany przy zwrocie częściowym."
+    },
+    {
+      "category": "zwroty",
+      "question": "Czy mogę wymienić produkt na inny rozmiar/kolor?",
+      "answer": "Wymiana produktu:\n- Wyślij zwrot obecnego produktu\n- Złóż nowe zamówienie na preferowany rozmiar/kolor\n- Opcja 'wymiana ekspresowa': nowy produkt wysyłamy od razu\n\nWymiana ekspresowa: kaucja z karty, zwrot po otrzymaniu zwrotu."
+    },
+    {
+      "category": "reklamacje",
+      "question": "Jaka jest gwarancja na produkty?",
+      "answer": "Gwarancja zależy od produktu:\n- Elektronika: 24 miesiące (gwarancja producenta)\n- Odzież/obuwie: 12 miesięcy\n- Akcesoria: 12 miesięcy\n\nRękojmia: 2 lata dla wszystkich produktów (prawo konsumenckie)."
+    },
+    {
+      "category": "reklamacje",
+      "question": "Czy mogę naprawić produkt w ramach gwarancji?",
+      "answer": "Naprawa gwarancyjna:\n1. Zgłoś usterkę przez 'Reklamacje'\n2. Wyślij produkt na adres serwisu\n3. Diagnostyka i naprawa (do 14 dni)\n4. Otrzymasz naprawiony produkt lub wymianę\n\nJeśli naprawa niemożliwa - zwrot pieniędzy lub wymiana."
+    },
+    {
+      "category": "płatności",
+      "question": "Co robić gdy płatność się nie powiodła?",
+      "answer": "Nieudana płatność:\n1. Sprawdź saldo/limit karty\n2. Spróbuj innej metody płatności\n3. Sprawdź czy bank nie zablokował transakcji\n4. Skontaktuj się z bankiem\n\nZamówienie jest wstrzymane przez 48h - zapłać lub anuluj."
+    },
+    {
+      "category": "płatności",
+      "question": "Czy otrzymam fakturę VAT?",
+      "answer": "Faktury VAT:\n- Domyślnie: paragon fiskalny\n- Faktura VAT: zaznacz opcję przy zamówieniu\n- Podaj dane firmy (NIP obowiązkowy)\n- Faktura w emailu w ciągu 24h\n\nMożesz poprosić o fakturę do 30 dni od zakupu."
+    },
+    {
+      "category": "konto",
+      "question": "Jak usunąć konto?",
+      "answer": "Usunięcie konta:\n1. Zaloguj się\n2. Ustawienia → 'Prywatność'\n3. 'Usuń konto'\n4. Potwierdź decyzję\n\nUwaga: stracisz historię zamówień i punkty lojalnościowe. Dane zostaną usunięte zgodnie z RODO."
+    },
+    {
+      "category": "konto",
+      "question": "Jak zmienić dane osobowe?",
+      "answer": "Zmiana danych:\n1. Zaloguj się\n2. 'Moje konto' → 'Dane osobowe'\n3. Edytuj dane\n4. Zapisz zmiany\n\nMożesz zmienić: imię, nazwisko, email, telefon, adresy."
+    },
+    {
+      "category": "zamówienia",
+      "question": "Czy mogę złożyć zamówienie telefoniczne?",
+      "answer": "Zamówienia telefoniczne:\n- Tak! Zadzwoń: 22 123 45 67 (pn-pt 9-17)\n- Konsultant pomoże złożyć zamówienie\n- Płatność: przy odbiorze lub przelew\n\nPolecamy dla osób starszych lub bez dostępu do internetu."
+    },
+    {
+      "category": "zamówienia",
+      "question": "Jak długo ważna jest rezerwacja produktu?",
+      "answer": "Rezerwacja w koszyku:\n- Bez logowania: 30 minut\n- Z kontem: 24 godziny\n- Po rozpoczęciu płatności: 15 minut\n\nPo tym czasie produkty wracają do sprzedaży."
+    },
+    {
+      "category": "produkty",
+      "question": "Jak działają opinie produktów?",
+      "answer": "System opinii:\n- Opinie mogą dodawać tylko kupujący\n- Weryfikacja: po 7 dniach od dostawy\n- Ocena 1-5 gwiazdek + komentarz\n- Możliwość dodania zdjęć\n\nOpinie są moderowane (usuwamy spam i wulgaryzmy)."
+    },
+    {
+      "category": "produkty",
+      "question": "Co oznaczają ikony na produktach?",
+      "answer": "Znaczenie ikon:\n- ⚡ 'Bestseller' - najczęściej kupowany\n- 🔥 'Hot deal' - promocja czasowa\n- ⭐ 'Polecamy' - wybór redakcji\n- 🆕 'Nowość' - w sprzedaży <30 dni\n- ♻️ 'Eco' - produkt ekologiczny\n- 🏆 'Premium' - najwyższa jakość"
+    },
+    {
+      "category": "promocje",
+      "question": "Jak działa program lojalnościowy?",
+      "answer": "Program lojalnościowy 'Klub Stały Klient':\n- Za każde 100 zł zakupów = 10 punktów\n- 100 punktów = 10 zł rabatu\n- Urodzinowy bonus: 50 punktów\n- Early access do wyprzedaży\n- Darmowe dostawy od 100 zł\n\nDołącz automatycznie po pierwszym zakupie."
+    },
+    {
+      "category": "promocje",
+      "question": "Czy mogę łączyć promocje?",
+      "answer": "Łączenie promocji:\n- Kod rabatowy + promocja produktowa: NIE\n- Kod rabatowy + darmowa dostawa: TAK\n- Program lojalnościowy + kod: NIE\n- Cashback + promocja: TAK\n\nZawsze stosujemy najkorzystniejszy wariant dla klienta."
+    },
+    {
+      "category": "kontakt",
+      "question": "Czy macie sklepy stacjonarne?",
+      "answer": "Nasze sklepy stacjonarne:\n- Warszawa: ul. Marszałkowska 123\n- Kraków: ul. Floriańska 45\n- Gdańsk: ul. Długa 67\n- Wrocław: Rynek 89\n\nGodziny: pn-pt 10-20, sb 10-18, nd 11-17\nMożesz zamówić online i odebrać w sklepie!"
+    },
+    {
+      "category": "zwroty",
+      "question": "Co z używanymi produktami?",
+      "answer": "Zwrot używanych produktów:\n- Można zwrócić jeśli był testowany (normalnie)\n- NIEPAKOWANIE całkowite = brak możliwości zwrotu\n- Ślady użytkowania = obniżony zwrot (do 30%)\n- Produkt musi być czysty i kompletny\n\nProdukty higienic (kosmetyki, bielizna) - nie podlegają zwrotowi."
+    },
+    {
+      "category": "bezpieczeństwo",
+      "question": "Czy moje dane są bezpieczne?",
+      "answer": "Bezpieczeństwo danych:\n- Szyfrowanie SSL (HTTPS)\n- Zgodność z RODO\n- Dane płatności nie są przechowywane\n- Regularne audyty bezpieczeństwa\n- Dwuskładnikowe uwierzytelnianie (opcja)\n\nNie udostępniamy danych firmom trzecim."
+    },
+    {
+      "category": "bezpieczeństwo",
+      "question": "Co robić w przypadku podejrzanej aktywności na koncie?",
+      "answer": "Podejrzana aktywność:\n1. Natychmiast zmień hasło\n2. Sprawdź historię zamówień\n3. Zgłoś do nas: bezpieczenstwo@sklep.pl\n4. Zablokujemy konto tymczasowo\n5. Sprawdzimy logi dostępu\n\nJeśli były nieuprawnione zakupy - anulujemy je."
+    },
+    {
+      "category": "dostawa",
+      "question": "Czy mogę przekierować paczkę do innego Paczkomatu?",
+      "answer": "Zmiana Paczkomatu:\n- Przed nadaniem: napisz do nas, zmienimy\n- Po nadaniu: użyj aplikacji InPost\n- W aplikacji: 'Zmień paczkomat'\n- Dostępne tylko w dniu dostawy\n\nZmiana jest darmowa."
+    },
+    {
+      "category": "produkty",
+      "question": "Czy oferujecie personalizację produktów?",
+      "answer": "Personalizacja:\n- Grawer na jubilerstwie: +30 zł, 3-5 dni\n- Nadruk na odzieży: +20 zł, 5-7 dni\n- Dedykacje w książkach: gratis, 2-3 dni\n- Pakowanie prezentowe: +10 zł\n\nWybierz opcję na stronie produktu."
     }
   ]
 }
