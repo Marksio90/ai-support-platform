@@ -1,0 +1,17 @@
+# Docker Compose override for OpenAI integration
+# Usage: docker-compose -f docker-compose.yml -f docker-compose.openai.yml up
+
+services:
+  # Override LLM service to use OpenAI version
+  llm-service:
+    build:
+      context: ../llm
+      dockerfile: Dockerfile.openai
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; r = requests.get('http://localhost:8001/health'); assert r.json()['api_key_set'] == True"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
