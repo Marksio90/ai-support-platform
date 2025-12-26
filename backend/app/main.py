@@ -12,6 +12,8 @@ from typing import Optional, Dict, Any
 import logging
 import time
 from datetime import datetime
+import httpx
+import os
 
 # Configure logging
 logging.basicConfig(
@@ -19,6 +21,13 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Service URLs
+LLM_SERVICE_URL = os.getenv("LLM_SERVICE_URL", "http://llm-service:8001")
+RAG_SERVICE_URL = os.getenv("RAG_SERVICE_URL", "http://rag-service:8002")
+
+# HTTP client with timeout
+http_client = httpx.AsyncClient(timeout=30.0)
 
 # Prometheus metrics
 request_counter = Counter(
@@ -92,15 +101,33 @@ async def health_check():
     Health check endpoint
     Returns status of all system components
     """
+    services_status = {"api": "healthy"}
+
+    # Check LLM service
+    try:
+        response = await http_client.get(f"{LLM_SERVICE_URL}/health", timeout=5.0)
+        services_status["llm"] = "healthy" if response.status_code == 200 else "degraded"
+    except Exception as e:
+        logger.warning(f"LLM service health check failed: {e}")
+        services_status["llm"] = "unavailable"
+
+    # Check RAG service
+    try:
+        response = await http_client.get(f"{RAG_SERVICE_URL}/health", timeout=5.0)
+        services_status["rag"] = "healthy" if response.status_code == 200 else "degraded"
+    except Exception as e:
+        logger.warning(f"RAG service health check failed: {e}")
+        services_status["rag"] = "unavailable"
+
+    # Overall status
+    overall_status = "healthy"
+    if any(v == "unavailable" for v in services_status.values()):
+        overall_status = "degraded"
+
     return HealthCheck(
-        status="healthy",
+        status=overall_status,
         timestamp=datetime.utcnow(),
-        services={
-            "api": "healthy",
-            "llm": "healthy",  # TODO: Check actual LLM service
-            "rag": "healthy",  # TODO: Check RAG service
-            "database": "healthy"
-        }
+        services=services_status
     )
 
 @app.post("/support/ask", response_model=SupportResponse, tags=["Support"])
@@ -209,15 +236,70 @@ async def recent_queries(limit: int = 10):
         "total": len(query_log)
     }
 
-# Mock processing function (will be replaced with actual LLM + RAG)
 async def process_query(query: SupportQuery) -> Dict[str, Any]:
     """
     Process support query using LLM + RAG
-    This is a mock implementation - will be replaced with actual integration
+    Integrates with RAG service for context retrieval and LLM service for generation
     """
-    # TODO: Replace with actual LLM + RAG integration
+    try:
+        # Step 1: Retrieve relevant context from RAG service
+        logger.info(f"Retrieving context from RAG service for: {query.query[:50]}...")
 
-    # Mock categorization
+        rag_response = await http_client.post(
+            f"{RAG_SERVICE_URL}/retrieve",
+            json={
+                "query": query.query,
+                "top_k": 3
+            },
+            timeout=10.0
+        )
+
+        if rag_response.status_code == 200:
+            rag_data = rag_response.json()
+            context = rag_data.get("context", "")
+            sources = rag_data.get("sources", [])
+            logger.info(f"Retrieved {len(rag_data.get('chunks', []))} chunks from RAG")
+        else:
+            logger.warning(f"RAG service returned status {rag_response.status_code}, using empty context")
+            context = ""
+            sources = []
+
+    except Exception as e:
+        logger.error(f"RAG service error: {e}, using empty context")
+        context = ""
+        sources = []
+
+    try:
+        # Step 2: Generate response using LLM service
+        logger.info(f"Generating response using LLM service...")
+
+        llm_response = await http_client.post(
+            f"{LLM_SERVICE_URL}/generate",
+            json={
+                "query": query.query,
+                "context": context,
+                "max_tokens": 200,
+                "temperature": 0.7
+            },
+            timeout=15.0
+        )
+
+        if llm_response.status_code == 200:
+            llm_data = llm_response.json()
+            answer = llm_data.get("answer", "")
+            confidence = llm_data.get("confidence", 0.5)
+            logger.info(f"Generated response with confidence: {confidence:.2f}")
+        else:
+            logger.error(f"LLM service returned status {llm_response.status_code}")
+            answer = "Przepraszam, wystąpił problem z generowaniem odpowiedzi. Spróbuj ponownie za chwilę."
+            confidence = 0.3
+
+    except Exception as e:
+        logger.error(f"LLM service error: {e}")
+        answer = "Przepraszam, wystąpił problem z generowaniem odpowiedzi. Spróbuj ponownie za chwilę."
+        confidence = 0.3
+
+    # Detect category (simple keyword-based for now)
     categories = {
         "status": ["status", "gdzie", "kiedy", "śledzenie"],
         "zwrot": ["zwrot", "reklamacja", "wymiana", "wadliwy"],
@@ -234,46 +316,12 @@ async def process_query(query: SupportQuery) -> Dict[str, Any]:
             detected_category = category
             break
 
-    # Mock responses based on category
-    mock_responses = {
-        "status": {
-            "text": "Rozumiem, że pytasz o status zamówienia. Aby sprawdzić aktualny status Twojego zamówienia, przejdź do zakładki 'Moje zamówienia' w swoim koncie lub użyj numeru zamówienia do śledzenia przesyłki na stronie kuriera. Jeśli potrzebujesz szczegółowych informacji, podaj numer zamówienia.",
-            "confidence": 0.85,
-            "sources": ["FAQ: Status zamówienia", "Polityka wysyłki"]
-        },
-        "zwrot": {
-            "text": "Zgodnie z naszą polityką zwrotów, masz 14 dni na zwrot produktu od daty otrzymania. Produkt musi być w oryginalnym opakowaniu, nieużywany. Aby rozpocząć proces zwrotu, przejdź do zakładki 'Zwroty i reklamacje' w swoim koncie. Koszt zwrotu pokrywa klient, chyba że produkt jest wadliwy.",
-            "confidence": 0.90,
-            "sources": ["Regulamin zwrotów", "Polityka reklamacji"]
-        },
-        "dostawa": {
-            "text": "Oferujemy następujące opcje dostawy: kurier (1-2 dni robocze), Paczkomat (1-2 dni robocze), odbiór osobisty. Koszt dostawy zależy od wartości zamówienia - darmowa dostawa przy zamówieniach powyżej 200 zł.",
-            "confidence": 0.88,
-            "sources": ["Polityka wysyłki", "Cennik dostaw"]
-        },
-        "płatność": {
-            "text": "Akceptujemy następujące formy płatności: przelew bankowy, karta płatnicza (Visa, Mastercard), BLIK, płatności odroczone (Pay Later). Płatność można dokonać podczas składania zamówienia.",
-            "confidence": 0.87,
-            "sources": ["Metody płatności", "FAQ: Płatności"]
-        },
-        "produkt": {
-            "text": "Aby sprawdzić dostępność produktu, odwiedź stronę produktu na naszej stronie. Aktualne informacje o dostępności, rozmiarach i kolorach znajdziesz w szczegółach produktu. Jeśli interesuje Cię konkretny produkt, podaj jego nazwę lub kod.",
-            "confidence": 0.75,
-            "sources": ["Katalog produktów", "FAQ: Dostępność"]
-        }
+    return {
+        "text": answer,
+        "confidence": confidence,
+        "sources": sources,
+        "category": detected_category
     }
-
-    response = mock_responses.get(
-        detected_category,
-        {
-            "text": "Dziękuję za pytanie. Aby udzielić Ci precyzyjnej odpowiedzi, potrzebuję więcej szczegółów. Czy możesz doprecyzować swoje pytanie lub skontaktować się z naszym zespołem obsługi klienta?",
-            "confidence": 0.50,
-            "sources": ["Ogólne FAQ"]
-        }
-    )
-
-    response["category"] = detected_category
-    return response
 
 if __name__ == "__main__":
     import uvicorn
