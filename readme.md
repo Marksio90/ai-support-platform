@@ -4,6 +4,20 @@
 
 Pilot MVP systemu AI do automatyzacji 50-70% zapytań klientów w sklepach internetowych.
 
+## ⚡ Quick Start (One Command!)
+
+```bash
+git clone https://github.com/Marksio90/ai-support-platform.git
+cd ai-support-platform
+cp .env.example .env
+# Edit .env and add your OPENAI_API_KEY
+cd deployment && ./start.sh
+```
+
+🎉 **That's it!** Access at http://localhost:3000
+
+📖 **Full guide:** [QUICKSTART.md](QUICKSTART.md)
+
 ---
 
 ## 🎯 Cel Projektu
